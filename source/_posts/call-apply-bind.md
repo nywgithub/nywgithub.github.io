@@ -13,7 +13,7 @@ tags:
 - bind不会直接执行函数，会返回一个改变this指向后的boundfounction
 - 用法
     1. call和apply是为了动态改变this而出现的，当一个object没有某个方法，但是其他的有，我们可以借助call或apply用其它对象的方法来操作。
-    ``` 
+    ```javascript 
         ;(function(){
             function cat(){
             }
@@ -33,14 +33,13 @@ tags:
 
     2. Array.prototype.slice.call(arguments)
     用的比较多的，通过document.getElementsByTagName选择的dom 节点是一种类似array的array。它不能应用Array下的push,pop等方法。我们可以通过：
-    ```    
+    ```javascript    
         var domNodes =  Array.prototype.slice.call(document.getElementsByTagName("*"));
     ```
     这样domNodes就可以应用Array下的所有方法了。
 
     3. 实现js继承
-    
-    ```
+    ```javascript
         //父类
         function Person(name, height) {
             this.sayInfo = function() {
