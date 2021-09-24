@@ -5,13 +5,17 @@
   
 
   
-  <title>Hexo</title>
+  <title>sass语法练习 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="@extend | 选择器 | &amp; | mixin @extend 12345678.error &amp;#123;  border: 1px #f00;  background-color: #fdd;&amp;#125;.seriousError &amp;#123;  @extend .error;  border-width: 3px;&amp;#125; 将error的样式继承给seriousError  选">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sass语法练习">
+<meta property="og:url" content="http://example.com/2021/09/24/sass%E8%AF%AD%E6%B3%95%E7%BB%83%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="@extend | 选择器 | &amp; | mixin @extend 12345678.error &amp;#123;  border: 1px #f00;  background-color: #fdd;&amp;#125;.seriousError &amp;#123;  @extend .error;  border-width: 3px;&amp;#125; 将error的样式继承给seriousError  选">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-09-24T01:45:55.000Z">
+<meta property="article:modified_time" content="2021-09-24T01:59:58.865Z">
 <meta property="article:author" content="niyongwei">
 <meta name="twitter:card" content="summary">
   
@@ -64,9 +68,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-sass语法练习" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-sass语法练习" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2021/09/24/sass%E8%AF%AD%E6%B3%95%E7%BB%83%E4%B9%A0/" class="article-date">
   <time datetime="2021-09-24T01:45:55.000Z" itemprop="datePublished">2021-09-24</time>
@@ -79,8 +81,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/09/24/sass%E8%AF%AD%E6%B3%95%E7%BB%83%E4%B9%A0/">sass语法练习</a>
+    <h1 class="article-title" itemprop="name">
+      sass语法练习
     </h1>
   
 
@@ -120,158 +122,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-call-apply-bind" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/09/23/call-apply-bind/" class="article-date">
-  <time datetime="2021-09-23T13:01:37.000Z" itemprop="datePublished">2021-09-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/09/23/call-apply-bind/">call,apply和bind</a>
-    </h1>
+    <a href="/2021/09/23/call-apply-bind/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">call,apply和bind</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p>call,apply改变函数的this指向,重新定义函数的执行环境，并直接执行函数<br>  call:func.call(context, arg1, arg2, …),多个参数依次排列<br>  apply:func.apply(context, arguments)，多个参数写成数组的展开形式<br>  context是上下文环境，函数的this将指向context<br>  如果call和apply的第一个参数是null，this指向window</p>
-</li>
-<li><p>bind不会直接执行函数，会返回一个改变this指向后的boundfounction</p>
-</li>
-<li><p>用法</p>
-<ol>
-<li><p>call和apply是为了动态改变this而出现的，当一个object没有某个方法，但是其他的有，我们可以借助call或apply用其它对象的方法来操作。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">;(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">cat</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    cat.prototype=&#123;</span><br><span class="line">        <span class="attr">food</span>:<span class="string">&quot;fish&quot;</span>,     </span><br><span class="line">        <span class="attr">say</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            alert(<span class="string">&quot;I love &quot;</span>+<span class="built_in">this</span>.food);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> blackCat = <span class="keyword">new</span> cat;</span><br><span class="line">    blackCat.say();</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
-<p>如果此时有一个whitedog = {food:”bone”}<br>也需要调用say()方法，可以用call和apply实现：<br>blackCat.say.call(whiteDog)。</p>
-</li>
-<li><p>Array.prototype.slice.call(arguments)<br>用的比较多的，通过document.getElementsByTagName选择的dom 节点是一种类似array的array。它不能应用Array下的push,pop等方法。我们可以通过：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> domNodes =  <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;*&quot;</span>));</span><br></pre></td></tr></table></figure>
-<p>这样domNodes就可以应用Array下的所有方法了。</p>
-</li>
-<li><p>实现js继承</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//父类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, height</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.sayInfo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;姓名：&quot;</span> + name + <span class="string">&quot;, 身高：&quot;</span> + height + <span class="string">&quot;, 体重：&quot;</span> + <span class="built_in">this</span>.weight;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//子类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Chinese</span>(<span class="params">name, height, weight</span>) </span>&#123;</span><br><span class="line">    Person.call(<span class="built_in">this</span>, name, height);</span><br><span class="line">    <span class="built_in">this</span>.weight = weight;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">this</span>.nation = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&quot;我是中国人&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//子类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">America</span>(<span class="params">name, height, weight</span>) </span>&#123;</span><br><span class="line">    Person.apply(<span class="built_in">this</span>, [name, height]);</span><br><span class="line">    <span class="built_in">this</span>.weight = weight;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> chiness = <span class="keyword">new</span> Chinese(<span class="string">&quot;成龙&quot;</span>, <span class="string">&quot;178cm&quot;</span>, <span class="string">&quot;60kg&quot;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(chiness.sayInfo());    <span class="comment">//姓名：成龙, 身高：178cm, 体重：60kg</span></span><br><span class="line"><span class="keyword">let</span> america = <span class="keyword">new</span> America(<span class="string">&quot;jack&quot;</span>, <span class="string">&quot;180cm&quot;</span>, <span class="string">&quot;55kg&quot;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(america.sayInfo());    <span class="comment">//姓名：jack, 身高：180cm, 体重：55kg</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/09/23/call-apply-bind/" data-id="cktwy2baj0000p5nl5xs24usc" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-Restful" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/09/22/Restful/" class="article-date">
-  <time datetime="2021-09-22T13:21:51.000Z" itemprop="datePublished">2021-09-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/09/22/Restful/">Restful</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>首先是拆分单词 Representational State Transfer</p>
-<ul>
-<li><p>资源(Resources)<br>资源就是请求获取的数据，一首歌，一个单词，一张图片等等。。</p>
-</li>
-<li><p>表现层（Representation）<br>资源的表现形式，可以理解为文本的格式，数据的格式，图片的格式</p>
-</li>
-<li><p>状态转化（State Transfer）<br>访问网站的过程，就是客户端和服务端的交互过程，这其中就涉及到数据和状态的改变</p>
-</li>
-</ul>
-<p>综合上面的解释，我们总结一下什么是RESTful架构：</p>
-<p>（1）每一个URI代表一种资源；</p>
-<p>（2）客户端和服务器之间，传递这种资源的某种表现层；</p>
-<p>（3）客户端通过四个HTTP动词，对服务器端资源进行操作，实现”表现层状态转化”。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/09/22/Restful/" data-id="cktvjch0f0000fsnl8a2vby0f" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-简介" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/09/21/%E7%AE%80%E4%BB%8B/" class="article-date">
-  <time datetime="2021-09-21T13:21:51.000Z" itemprop="datePublished">2021-09-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/09/21/%E7%AE%80%E4%BB%8B/">hello</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Here is some personal information about me:</p>
-<ul>
-<li>🔭 I’m Chinese and currently working in NanJing.</li>
-<li>📖 I’m currently learning &amp;&amp; using React.js/Next.js…</li>
-<li>🌱 Ask me about any question about my repos or directly give me a issue/pr~</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/09/21/%E7%AE%80%E4%BB%8B/" data-id="cktpj5k6c0000hsvd4zovfbu5" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
