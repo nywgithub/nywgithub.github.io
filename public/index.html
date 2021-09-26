@@ -66,6 +66,71 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/09/26/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="article-date">
+  <time datetime="2021-09-26T07:37:51.000Z" itemprop="datePublished">2021-09-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/09/26/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p><strong>RegExp</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第一种:内置对象RegExp</span></span><br><span class="line"><span class="keyword">let</span> regexp = <span class="keyword">new</span> <span class="built_in">RegExp</span>()</span><br><span class="line"><span class="comment">//RegExp允许动态狗仔模式</span></span><br><span class="line"><span class="keyword">let</span> search = calsStr(<span class="string">&#x27;...&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> regexp = <span class="keyword">new</span> <span class="built_in">RegExp</span>(search);</span><br><span class="line"><span class="comment">//第二种:单斜杠包裹:  /..../</span></span><br><span class="line"><span class="keyword">let</span> regexp = <span class="regexp">/\d:\m0*/</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>修饰符</strong><br>i: 不区分大小写<br>g: 会匹配完所有字符<br>m: 匹配多行<br>u: unicode模式<br>y: 粘滞模式</p>
+</li>
+<li><p><strong>字符类</strong><br>\d: 数字0-9<br>\s: 空格<br>\w: 单字符包括下划线_</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&#x27;asds1123_ads&#x27;</span></span><br><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/\d_\w/g</span></span><br><span class="line"><span class="built_in">console</span>.log(str.match(reg))<span class="comment">//[&#x27;s_a&#x27;]</span></span><br></pre></td></tr></table></figure>
+<p>反向类：<br>\D,\S,\M，取反<br>点（.）是匹配“除换行符之外的任何字符”</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/./</span></span><br></pre></td></tr></table></figure>
+<p>匹配任何字符</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/./</span>s</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>锚点</strong><br>^:匹配文本开头<br>$:匹配文本结尾</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str1 = <span class="string">&quot;Mary had a little lamb&quot;</span>;</span><br><span class="line">alert( <span class="regexp">/^Mary/</span>.test(str1) ); <span class="comment">// true</span></span><br><span class="line"><span class="keyword">let</span> str1 = <span class="string">&quot;it&#x27;s fleece was white as snow&quot;</span>;</span><br><span class="line">alert( <span class="regexp">/snow$/</span>.test(str1) ); <span class="comment">// true</span></span><br><span class="line"><span class="comment">//时间格式</span></span><br><span class="line"><span class="keyword">let</span> regexp = <span class="regexp">/^\d\d[:-]\d\d$/</span>;</span><br></pre></td></tr></table></figure>
+<p>空字符串匹配</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/^$/g</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>词边界</strong><br>\b<br>有三种不同的位置可作为词边界：<br>在字符串开头，如果第一个字符是单词字符 \w。<br>在字符串中的两个字符之间，其中一个是单词字符 \w，另一个不是。<br>在字符串末尾，如果最后一个字符是单词字符 \w。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alert( <span class="string">&quot;Hello, Java!&quot;</span>.match(<span class="regexp">/\bJava\b/</span>) ); <span class="comment">// Java</span></span><br><span class="line">alert( <span class="string">&quot;Hello, JavaScript!&quot;</span>.match(<span class="regexp">/\bJava\b/</span>) ); <span class="comment">// null</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>转义特殊字符</strong><br>这里是包含所有特殊字符的列表：[ \ ^ $ . | ? * + ( )<br>在特殊字符前加上反斜杠: \</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/\?/</span>    <span class="comment">// &#x27;?&#x27;</span></span><br><span class="line"><span class="keyword">let</span> reg2 = <span class="regexp">/\(\)/</span> <span class="comment">// &#x27;()&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>特殊情况: 转义 / 时使用new RegExp()可以不转义</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/\//</span>   <span class="comment">// &#x27;/&#x27;</span></span><br><span class="line"><span class="keyword">let</span> regexp = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">&quot;/&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>传递一个字符串（参数）给 new RegExp 时，我们需要双倍反斜杠 \，因为字符串引号会消费其中的一个。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> regStr = <span class="string">&quot;\\d\\.\\d&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> regexp = <span class="keyword">new</span> <span class="built_in">RegExp</span>(regStr);</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>集合和范围[…]</strong><br>在方括号 […] 中的几个字符或者字符类意味着“搜索给定的字符中的任意一个”。<br>集合：<br>[eao] 意味着查找在 3 个字符 ‘a’、’e’ 或者 `‘o’ 中的任意一个。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/[eao]/</span></span><br></pre></td></tr></table></figure>
+<p>范围:<br>[a-z] 表示a到z范围内的字母<br>[0-9] 表示0-9范围内的数字<br>[0-9A-F] 表示两个范围：它搜索一个字符，满足数字 0 到 9 或字母 A 到 F。<br>查找单词字符 \w 或连字符 -，则该集合为 [\w-]。</p>
+</li>
+</ul>
+<p>排除范围： [^…]</p>
+<h2 id="在-…-中不转义"><a href="#在-…-中不转义" class="headerlink" title="在 […] 中不转义"></a>在 […] 中不转义</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/[-().^+]/</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/09/26/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" data-id="cku148rno0000gsvd60uy9xhx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-js继承的6种方式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2021/09/25/js%E7%BB%A7%E6%89%BF%E7%9A%846%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="article-date">
@@ -363,6 +428,10 @@
       <ul>
         
           <li>
+            <a href="/2021/09/26/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+          </li>
+        
+          <li>
             <a href="/2021/09/25/js%E7%BB%A7%E6%89%BF%E7%9A%846%E7%A7%8D%E6%96%B9%E5%BC%8F/">js继承的6种方式</a>
           </li>
         
@@ -376,10 +445,6 @@
         
           <li>
             <a href="/2021/09/22/Restful/">Restful</a>
-          </li>
-        
-          <li>
-            <a href="/2021/09/21/%E7%AE%80%E4%BB%8B/">hello</a>
           </li>
         
       </ul>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>正则表达式 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="RegExp 1234567&#x2F;&#x2F;第一种:内置对象RegExplet regexp &#x3D; new RegExp()&#x2F;&#x2F;RegExp允许动态狗仔模式let search &#x3D; calsStr(&amp;#x27;...&amp;#x27;)let regexp &#x3D; new RegExp(search);&#x2F;&#x2F;第二种:单斜杠包裹:  &#x2F;....&#x2F;let regexp &#x3D; &#x2F;\d:\m0*&#x2F; 修饰符i: 不区分大小写g: 会">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式">
+<meta property="og:url" content="http://example.com/2021/09/26/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="RegExp 1234567&#x2F;&#x2F;第一种:内置对象RegExplet regexp &#x3D; new RegExp()&#x2F;&#x2F;RegExp允许动态狗仔模式let search &#x3D; calsStr(&amp;#x27;...&amp;#x27;)let regexp &#x3D; new RegExp(search);&#x2F;&#x2F;第二种:单斜杠包裹:  &#x2F;....&#x2F;let regexp &#x3D; &#x2F;\d:\m0*&#x2F; 修饰符i: 不区分大小写g: 会">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-09-26T07:37:51.000Z">
+<meta property="article:modified_time" content="2021-09-26T11:04:31.666Z">
+<meta property="article:author" content="niyongwei">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/09/26/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="article-date">
+  <time datetime="2021-09-26T07:37:51.000Z" itemprop="datePublished">2021-09-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      正则表达式
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p><strong>RegExp</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第一种:内置对象RegExp</span></span><br><span class="line"><span class="keyword">let</span> regexp = <span class="keyword">new</span> <span class="built_in">RegExp</span>()</span><br><span class="line"><span class="comment">//RegExp允许动态狗仔模式</span></span><br><span class="line"><span class="keyword">let</span> search = calsStr(<span class="string">&#x27;...&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> regexp = <span class="keyword">new</span> <span class="built_in">RegExp</span>(search);</span><br><span class="line"><span class="comment">//第二种:单斜杠包裹:  /..../</span></span><br><span class="line"><span class="keyword">let</span> regexp = <span class="regexp">/\d:\m0*/</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>修饰符</strong><br>i: 不区分大小写<br>g: 会匹配完所有字符<br>m: 匹配多行<br>u: unicode模式<br>y: 粘滞模式</p>
+</li>
+<li><p><strong>字符类</strong><br>\d: 数字0-9<br>\s: 空格<br>\w: 单字符包括下划线_</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&#x27;asds1123_ads&#x27;</span></span><br><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/\d_\w/g</span></span><br><span class="line"><span class="built_in">console</span>.log(str.match(reg))<span class="comment">//[&#x27;s_a&#x27;]</span></span><br></pre></td></tr></table></figure>
+<p>反向类：<br>\D,\S,\M，取反<br>点（.）是匹配“除换行符之外的任何字符”</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/./</span></span><br></pre></td></tr></table></figure>
+<p>匹配任何字符</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/./</span>s</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>锚点</strong><br>^:匹配文本开头<br>$:匹配文本结尾</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str1 = <span class="string">&quot;Mary had a little lamb&quot;</span>;</span><br><span class="line">alert( <span class="regexp">/^Mary/</span>.test(str1) ); <span class="comment">// true</span></span><br><span class="line"><span class="keyword">let</span> str1 = <span class="string">&quot;it&#x27;s fleece was white as snow&quot;</span>;</span><br><span class="line">alert( <span class="regexp">/snow$/</span>.test(str1) ); <span class="comment">// true</span></span><br><span class="line"><span class="comment">//时间格式</span></span><br><span class="line"><span class="keyword">let</span> regexp = <span class="regexp">/^\d\d[:-]\d\d$/</span>;</span><br></pre></td></tr></table></figure>
+<p>空字符串匹配</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/^$/g</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>词边界</strong><br>\b<br>有三种不同的位置可作为词边界：<br>在字符串开头，如果第一个字符是单词字符 \w。<br>在字符串中的两个字符之间，其中一个是单词字符 \w，另一个不是。<br>在字符串末尾，如果最后一个字符是单词字符 \w。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alert( <span class="string">&quot;Hello, Java!&quot;</span>.match(<span class="regexp">/\bJava\b/</span>) ); <span class="comment">// Java</span></span><br><span class="line">alert( <span class="string">&quot;Hello, JavaScript!&quot;</span>.match(<span class="regexp">/\bJava\b/</span>) ); <span class="comment">// null</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>转义特殊字符</strong><br>这里是包含所有特殊字符的列表：[ \ ^ $ . | ? * + ( )<br>在特殊字符前加上反斜杠: \</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/\?/</span>    <span class="comment">// &#x27;?&#x27;</span></span><br><span class="line"><span class="keyword">let</span> reg2 = <span class="regexp">/\(\)/</span> <span class="comment">// &#x27;()&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>特殊情况: 转义 / 时使用new RegExp()可以不转义</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/\//</span>   <span class="comment">// &#x27;/&#x27;</span></span><br><span class="line"><span class="keyword">let</span> regexp = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">&quot;/&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>传递一个字符串（参数）给 new RegExp 时，我们需要双倍反斜杠 \，因为字符串引号会消费其中的一个。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> regStr = <span class="string">&quot;\\d\\.\\d&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> regexp = <span class="keyword">new</span> <span class="built_in">RegExp</span>(regStr);</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>集合和范围[…]</strong><br>在方括号 […] 中的几个字符或者字符类意味着“搜索给定的字符中的任意一个”。<br>集合：<br>[eao] 意味着查找在 3 个字符 ‘a’、’e’ 或者 `‘o’ 中的任意一个。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/[eao]/</span></span><br></pre></td></tr></table></figure>
+<p>范围:<br>[a-z] 表示a到z范围内的字母<br>[0-9] 表示0-9范围内的数字<br>[0-9A-F] 表示两个范围：它搜索一个字符，满足数字 0 到 9 或字母 A 到 F。<br>查找单词字符 \w 或连字符 -，则该集合为 [\w-]。</p>
+</li>
+</ul>
+<p>排除范围： [^…]</p>
+<h2 id="在-…-中不转义"><a href="#在-…-中不转义" class="headerlink" title="在 […] 中不转义"></a>在 […] 中不转义</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/[-().^+]/</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/09/26/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" data-id="cku148rno0000gsvd60uy9xhx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/09/25/js%E7%BB%A7%E6%89%BF%E7%9A%846%E7%A7%8D%E6%96%B9%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">js继承的6种方式</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/09/26/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/25/js%E7%BB%A7%E6%89%BF%E7%9A%846%E7%A7%8D%E6%96%B9%E5%BC%8F/">js继承的6种方式</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/24/sass%E8%AF%AD%E6%B3%95%E7%BB%83%E4%B9%A0/">sass语法练习</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/23/call-apply-bind/">call,apply和bind</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/22/Restful/">Restful</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 niyongwei<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+  var now = new Date();
+
+  function createtime() {
+    var grt = new Date("08/10/2018 17:38:00"); //在此处修改你的建站时间
+    now.setTime(now.getTime() + 250);
+    days = (now - grt) / 1000 / 60 / 60 / 24;
+    dnum = Math.floor(days);
+    hours = (now - grt) / 1000 / 60 / 60 - 24 * dnum;
+    hnum = Math.floor(hours);
+    if (String(hnum).length == 1) {
+      hnum = "0" + hnum;
+    }
+    minutes = (now - grt) / 1000 / 60 - 24 * 60 * dnum - 60 * hnum;
+    mnum = Math.floor(minutes);
+    if (String(mnum).length == 1) {
+      mnum = "0" + mnum;
+    }
+    seconds = (now - grt) / 1000 - 24 * 60 * 60 * dnum - 60 * 60 * hnum - 60 * mnum;
+    snum = Math.round(seconds);
+    if (String(snum).length == 1) {
+      snum = "0" + snum;
+    }
+    document.getElementById("timeDate").innerHTML =
+      "本站已运行 " + dnum + " 天 ";
+    document.getElementById("times").innerHTML =
+      hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+  }
+  setInterval("createtime()", 250);
+</script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
